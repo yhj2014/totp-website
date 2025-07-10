@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOTP 认证器 - 安全双因素认证工具</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>TOTP 认证器</h1>
+            <p>安全、便捷的双因素认证解决方案</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h2>保护您的在线账户安全</h2>
+                <p>基于时间的一次性密码(TOTP)认证器，支持Windows和Android平台</p>
+                <a href="#download" class="btn">立即下载</a>
+            </div>
+            <div class="hero-features">
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>安全加密</h3>
+                    <p>所有账户信息均加密存储</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📱</div>
+                    <h3>多平台支持</h3>
+                    <p>Windows和Android双平台</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>快速添加</h3>
+                    <p>支持密钥输入、二维码扫描和图片导入</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="download" class="download-section">
+            <h2>下载资源</h2>
+            
+            <div class="download-grid">
+                <div class="download-card">
+                    <div class="download-info">
+                        <h3>TOTP 认证器 Python 源码</h3>
+                        <p>版本: 1.0.0 | 大小: ~50KB</p>
+                        <ul class="file-info">
+                            <li>✓ 完整Python实现</li>
+                            <li>✓ 包含所有依赖项</li>
+                            <li>✓ 详细注释</li>
+                        </ul>
+                    </div>
+                    <button id="download-src" class="btn download-btn">下载 totp.py</button>
+                </div>
+
+                <div class="download-card">
+                    <div class="download-info">
+                        <h3>Windows 打包脚本</h3>
+                        <p>版本: 1.0.0 | 大小: ~2KB</p>
+                        <ul class="file-info">
+                            <li>✓ 一键打包EXE</li>
+                            <li>✓ 自动处理依赖</li>
+                            <li>✓ PowerShell脚本</li>
+                        </ul>
+                    </div>
+                    <button id="download-exe-script" class="btn download-btn">下载 build_exe.ps1</button>
+                </div>
+
+                <div class="download-card">
+                    <div class="download-info">
+                        <h3>Android 打包脚本</h3>
+                        <p>版本: 1.0.0 | 大小: ~3KB</p>
+                        <ul class="file-info">
+                            <li>✓ 一键打包APK</li>
+                            <li>✓ 自动配置项目</li>
+                            <li>✓ 支持生物识别</li>
+                        </ul>
+                    </div>
+                    <button id="download-apk-script" class="btn download-btn">下载 build_apk.ps1</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="build-section">
+            <h2>打包教程</h2>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="manual">手动打包</button>
+                <button class="tab-btn" data-tab="script">使用脚本打包</button>
+            </div>
+            
+            <div id="manual" class="tab-content active">
+                <h3>手动打包教程</h3>
+                
+                <div class="build-method">
+                    <h4>Windows EXE 打包</h4>
+                    <ol>
+                        <li>安装 Python 3.8+ 和 Git</li>
+                        <li>安装依赖库：
+                            <pre><code>pip install pyinstaller pyotp qrcode opencv-python pillow cryptography</code></pre>
+                        </li>
+                        <li>执行打包命令：
+                            <pre><code>pyinstaller --onefile --windowed --name=TOTP_Authenticator totp.py</code></pre>
+                        </li>
+                        <li>打包完成后，EXE文件位于 <code>dist/</code> 目录</li>
+                    </ol>
+                </div>
+
+                <div class="build-method">
+                    <h4>Android APK 打包</h4>
+                    <ol>
+                        <li>安装 Android Studio 并配置 SDK/NDK</li>
+                        <li>安装 BeeWare 工具：
+                            <pre><code>pip install briefcase</code></pre>
+                        </li>
+                        <li>初始化项目：
+                            <pre><code>briefcase new</code></pre>
+                        </li>
+                        <li>创建并构建 Android 项目：
+                            <pre><code>briefcase create android
+briefcase build android</code></pre>
+                        </li>
+                        <li>APK文件位于 <code>android/</code> 目录</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div id="script" class="tab-content">
+                <h3>使用脚本打包教程</h3>
+                
+                <div class="build-method">
+                    <h4>Windows EXE 打包脚本</h4>
+                    <ol>
+                        <li>下载 <code>build_exe.ps1</code> 脚本</li>
+                        <li>右键脚本选择"使用 PowerShell 运行"</li>
+                        <li>等待自动完成：
+                            <ul>
+                                <li>✓ 自动安装依赖</li>
+                                <li>✓ 自动清理临时文件</li>
+                                <li>✓ 输出到 <code>TOTP_Windows/</code> 目录</li>
+                            </ul>
+                        </li>
+                        <li>将整个文件夹分发给用户</li>
+                    </ol>
+                </div>
+
+                <div class="build-method">
+                    <h4>Android APK 打包脚本</h4>
+                    <ol>
+                        <li>确保已配置 Android SDK/NDK</li>
+                        <li>下载 <code>build_apk.ps1</code> 脚本</li>
+                        <li>右键脚本选择"使用 PowerShell 运行"</li>
+                        <li>等待构建完成（约10-20分钟）：
+                            <ul>
+                                <li>✓ 自动配置项目</li>
+                                <li>✓ 处理依赖关系</li>
+                                <li>✓ 输出到 <code>TOTP_Android/</code> 目录</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <div class="note">
+                        <strong>注意：</strong> 首次运行需接受Android许可证：<code>sdkmanager --licenses</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <h2>功能特性</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>多账户管理</h3>
+                    <p>支持添加和管理多个TOTP账户，界面简洁直观</p>
+                </div>
+                <div class="feature-card">
+                    <h3>多种添加方式</h3>
+                    <p>支持手动输入密钥、摄像头扫描二维码或导入图片添加账户</p>
+                </div>
+                <div class="feature-card">
+                    <h3>数据加密</h3>
+                    <p>所有账户信息使用AES加密存储，保护您的隐私安全</p>
+                </div>
+                <div class="feature-card">
+                    <h3>跨平台支持</h3>
+                    <p>可打包为Windows EXE和Android APK，满足不同设备需求</p>
+                </div>
+                <div class="feature-card">
+                    <h3>自动更新</h3>
+                    <p>验证码每30秒自动更新，确保时效性</p>
+                </div>
+                <div class="feature-card">
+                    <h3>生物识别</h3>
+                    <p>Android版支持指纹验证，提升安全性</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>TOTP 认证器 &copy; 2023 - 开源项目，遵循MIT许可证</p>
+            <p>GitHub仓库: <a href="https://github.com/yhj2014/totp-website" target="_blank">yhj2014/totp-website</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
